@@ -1,0 +1,53 @@
+<div class="super">
+<form  autocomplete="off" novalidate #form="ngForm" (submit)="onSubmit(form)" >
+
+
+
+
+    <input type="hidden" name="bookId"
+    [value]="service.formData.bookId"/>
+   
+
+      
+    <div class="form-group">
+        <label>Book Title</label>
+        <input class="form-control from form-control-lg" placeholder="Enter Book Title"
+        name="bookTitle"#bookTitle="ngModel" [(ngModel)]="service.formData.bookTitle"
+        required [class.invalid]="bookTitle.invalid && bookTitle.touched">
+    </div>
+    <div class="form-group">
+        <label>ISB Number</label>
+        <input class="form-control from form-control-lg" placeholder="Enter the 4 Digit number"
+        name="isbn"#isbn="ngModel" [(ngModel)]="service.formData.isbn"
+        required maxlength="9" minlength="9"[class.invalid]="isbn.invalid && isbn.touched">
+    </div>
+    <div class="form-group">
+        <label>Auther Name</label>
+        <input class="form-control from form-control-lg" placeholder="Enter Auther Name"
+        name="auther"#auther="ngModel" [(ngModel)]="service.formData.auther"
+        required [class.invalid]="auther.invalid && auther.touched">
+    </div>
+    <div class="row g-3">
+      <div class="form-group col-md-6">
+        <label>Category</label>
+        <input class="form-control from form-control-lg" placeholder="Enter Category"
+        name="category"#category="ngModel" [(ngModel)]="service.formData.category"
+        required [class.invalid]="category.invalid && category.touched">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Publisher Name</label>
+        <input class="form-control from form-control-lg" placeholder="Enter Publisher's Name"
+        name="publisher"#publisher="ngModel" [(ngModel)]="service.formData.publisher"
+        required [class.invalid]="publisher.invalid && publisher.touched">
+      </div>
+    </div>  
+    <h1>   </h1>
+    <div class="form-group">
+      <button type="button" class="btn btn-info  btn-lg btn-block" type="submit" [disabled]="form.invalid">Save</button> 
+      
+      
+    </div>
+    
+    
+</form>
+</div>

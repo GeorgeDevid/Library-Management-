@@ -1,0 +1,36 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body style="background: url(https://images.pexels.com/photos/2943603/pexels-photo-2943603.jpeg?cs=srgb&dl=pexels-engin-akyurt-2943603.jpg&fm=jpg
+
+);background-size: 100%;">
+
+
+    
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <label class="title">LIBRARY MANAGMENT SYSTEM</label>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img  src="https://www.clipartmax.com/png/full/46-466028_around-the-library-books-circle-icon-png.png" style="width: 200px; height: 200px;" id="icon" alt="User Icon" class="icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)" >
+      <input type="text" id="login" class="fadeIn second" #userName="ngModel" name="userName" placeholder="Username" [(ngModel)]="service.userName" required>
+      <input type="password" id="password" class="fadeIn third"#password="ngModel" name="password" placeholder="password" [(ngModel)]="service.password" required>
+      <input type="submit" class="fadeIn fourth" [disabled]="form.invalid" value="Log In">
+    </form>
+
+   
+
+  </div>
+</div>
+</body>

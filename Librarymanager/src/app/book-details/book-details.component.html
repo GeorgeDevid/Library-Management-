@@ -1,0 +1,97 @@
+
+
+
+<body style="background: url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80
+) center center fixed;
+background-size: 100%;">
+<html>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="navbar-title" >Library Managemnt</div>
+    <form class="form-inline ">
+    <div class=" row g-2">
+      
+        <div class= "col-md-6">
+            <button type="button" class="btn btn-dark"(click)="logOut()">Logout</button>
+        </div>
+    </div>
+    </form>
+    
+  </nav>
+
+ 
+
+<div class="cart" >
+  <div class="card-body">
+
+<table class="table">
+    <thead class ="thead-light">
+    <tr>
+        <th>Book Title</th>
+        <th>ISB Number</th>
+        <th>Auther</th>
+        <th>Category</th>
+        <th>Publisher</th>
+        <th>Edit/Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr  >
+        <td><input class="form-control input-sm" [(ngModel)]="searchInput1"  (keyup)="search1()" placeholder="Search"></td>
+        <td><input class="form-control input-sm" [(ngModel)]="searchInput2"  (keyup)="search2()" placeholder="Search"></td>
+        <td><input class="form-control input-sm" [(ngModel)]="searchInput3"  (keyup)="search3()" placeholder="Search"></td>
+        <td><input class="form-control input-sm" [(ngModel)]="searchInput4"  (keyup)="search4()" placeholder="Search"></td>
+        <td><input class="form-control input-sm" [(ngModel)]="searchInput5"  (keyup)="search5()" placeholder="Search"></td>
+
+      </tr>
+        <tr *ngFor="let bd of service.list" class="things">
+    
+            <td (click)="populateForm(bd)">{{bd.bookTitle}}</td>
+            <td (click)="populateForm(bd)">{{bd.isbn}}</td>
+            <td (click)="populateForm(bd)">{{bd.auther}}</td>
+            <td (click)="populateForm(bd)">{{bd.category}}</td>
+            <td (click)="populateForm(bd)">{{bd.publisher}}</td>
+            <td>
+                <i (click)="populateForm(bd);showModal=true" class="fas fa-edit fa-lg" id="editIcon"></i>
+                <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(bd.bookId)"></i>
+            </td>
+        </tr>   
+        
+    </tbody>
+
+</table>
+  
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="showModal=true">Add Book</button>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog" [ngClass]="{'show':showModal}">
+
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="jumbotron py-3">
+            <h1 class="diaplay-4 text-center">Enter Book Details</h1>
+        </div>
+        
+      </div>
+      <div class="modal-body">
+        <app-book-detail-form></app-book-detail-form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-lg"(click)="showModal=false">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+</html>
+  </body>
